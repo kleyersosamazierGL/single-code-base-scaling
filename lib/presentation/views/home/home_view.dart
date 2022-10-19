@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pets_app/core/color/pets_app_color.dart';
 import 'package:pets_app/presentation/views/favorites/favorites_view.dart';
 import 'package:pets_app/presentation/views/pets/pets_view.dart';
 
@@ -16,11 +17,14 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[selectedPage],
+      body: IndexedStack(
+        index: selectedPage,
+        children: const [PetsView(), FavoritesView()],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        backgroundColor: const Color(0xFF6C21DF),
+        backgroundColor: PetsAppColor.purple,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white.withOpacity(0.5),
         currentIndex: selectedPage,

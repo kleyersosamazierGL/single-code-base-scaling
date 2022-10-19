@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:pets_app/core/color/pets_app_color.dart';
+import 'package:pets_app/model/pet.dart';
+import 'package:pets_app/provider/pet_provider.dart';
+import 'package:provider/provider.dart';
 
-class PetTile extends StatelessWidget {
-  const PetTile({Key? key}) : super(key: key);
+class PetTile extends StatefulWidget {
+  const PetTile({
+    super.key,
+    required this.pet,
+  });
+
+  final Pet pet;
+
+  @override
+  State<PetTile> createState() => _PetTileState();
+}
+
+class _PetTileState extends State<PetTile> {
+  var isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +30,20 @@ class PetTile extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
         border: Border.all(
-          color: const Color(0xFFE0E0E0),
+          color: PetsAppColor.gray2,
         ),
+        color: Colors.white,
       ),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          //TODO: Navigation to Pet Profile
+        },
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.asset(
-              'assets/pets/pet1.png',
+              'assets/pets/${widget.pet.name.toLowerCase()}.png',
+              fit: BoxFit.fitWidth,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
@@ -33,25 +54,43 @@ class PetTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Aurora',
+                        widget.pet.name,
                         style: Theme.of(context).textTheme.headline6!.copyWith(
-                              color: const Color(0xFF6C21DF),
+                              color: PetsAppColor.purple,
                             ),
                       ),
-                      Text('French Bulldog, 7 years',
+                      Text('${widget.pet.pedigree}, ${widget.pet.age} years',
                           style: Theme.of(context).textTheme.bodyText1),
                     ],
                   ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.favorite_border,
-                        color: Color(0xFF6C21DF),
-                      )),
+                  Consumer<PetProvider>(builder: (context, provider, _) {
+                    return IconButton(
+                      onPressed: () {
+                        isFavorite = !isFavorite;
+
+                        if (isFavorite) {
+                          provider.addFavorite(widget.pet);
+                        } else {
+                          provider.removeFavorite(widget.pet);
+                        }
+
+                        setState(() {});
+                      },
+                      icon: Icon(
+                        isFavorite &&
+                                provider.petList.indexWhere(
+                                        (pet) => pet.name == widget.pet.name) !=
+                                    -1
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: PetsAppColor.purple,
+                      ),
+                    );
+                  }),
                 ],
               ),
             ),
-            Container(height: 5, color: Color(0xFF00DA9F)),
+            Container(height: 5, color: PetsAppColor.green),
           ],
         ),
       ),

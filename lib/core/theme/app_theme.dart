@@ -4,23 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   static ThemeData themeData() => ThemeData(
         useMaterial3: true,
-        colorScheme: const ColorScheme(
-          brightness: Brightness.light,
-          primary: Color(0xFF6C21DF),
-          onPrimary: Colors.white,
-          background: Color(0xFF6C21DF),
-          onBackground: Colors.red,
-          surface: Colors.white,
-          onSurface: Colors.black,
-          primaryContainer: Color(0xffa0c2ed),
-          secondary: Color(0xff00DA9F),
-          onSecondary: Color(0xff00DA9F),
-          secondaryContainer: Color(0xffffd270),
-          tertiary: Color(0xff5c5c95),
-          tertiaryContainer: Color(0xffc8dbf8),
-          error: Colors.red,
-          onError: Colors.red,
-        ),
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Colors.white.withOpacity(0.1),

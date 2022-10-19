@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pets_app/core/color/pets_app_color.dart';
 import 'package:pets_app/presentation/views/home/home_view.dart';
 
 class LoginView extends StatelessWidget {
@@ -7,11 +8,11 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: PetsAppColor.purple,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 74, horizontal: 36),
+            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 36),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -73,7 +74,7 @@ class LoginView extends StatelessWidget {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF00DA9F),
+                    backgroundColor: PetsAppColor.green,
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
