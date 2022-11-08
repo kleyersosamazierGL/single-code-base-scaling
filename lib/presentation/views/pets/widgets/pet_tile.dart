@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:pets_app/core/color/pets_app_color.dart';
 import 'package:pets_app/model/pet.dart';
+import 'package:pets_app/presentation/views/profile/profile_view.dart';
 import 'package:pets_app/provider/pet_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +23,16 @@ class _PetTileState extends State<PetTile> {
   var isFavorite = false;
 
   @override
+  void initState() {
+    final provider = Provider.of<PetProvider>(context, listen: false);
+    isFavorite =
+        (provider.petList.indexWhere((pet) => pet.name == widget.pet.name) !=
+            -1);
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
@@ -36,7 +49,12 @@ class _PetTileState extends State<PetTile> {
       ),
       child: InkWell(
         onTap: () {
-          //TODO: Navigation to Pet Profile
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProfileView(pet: widget.pet),
+            ),
+          );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -64,6 +82,12 @@ class _PetTileState extends State<PetTile> {
                     ],
                   ),
                   Consumer<PetProvider>(builder: (context, provider, _) {
+                    isFavorite = (provider.petList
+                            .indexWhere((pet) => pet.name == widget.pet.name) !=
+                        -1);
+                    log(isFavorite.toString());
+                    log(provider.petList.toString());
+
                     return IconButton(
                       onPressed: () {
                         isFavorite = !isFavorite;
@@ -74,15 +98,10 @@ class _PetTileState extends State<PetTile> {
                           provider.removeFavorite(widget.pet);
                         }
 
-                        setState(() {});
+                        // setState(() {});
                       },
                       icon: Icon(
-                        isFavorite &&
-                                provider.petList.indexWhere(
-                                        (pet) => pet.name == widget.pet.name) !=
-                                    -1
-                            ? Icons.favorite
-                            : Icons.favorite_border,
+                        isFavorite ? Icons.favorite : Icons.favorite_border,
                         color: PetsAppColor.purple,
                       ),
                     );

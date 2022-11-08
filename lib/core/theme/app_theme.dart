@@ -45,11 +45,16 @@ class AppTheme {
           ),
           caption: TextStyle(
               fontSize: 12, fontFamily: GoogleFonts.ptSans().fontFamily),
-          overline: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+          overline: const TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 3,
+          ),
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
         ),
+        scaffoldBackgroundColor: Colors.white,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
