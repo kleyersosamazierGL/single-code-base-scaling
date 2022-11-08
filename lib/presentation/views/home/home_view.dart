@@ -12,7 +12,6 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   var selectedPage = 0;
-  final pages = const [PetsView(), FavoritesView()];
 
   @override
   Widget build(BuildContext context) {
