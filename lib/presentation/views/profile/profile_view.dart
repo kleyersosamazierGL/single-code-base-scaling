@@ -46,9 +46,12 @@ class _ProfileViewState extends State<ProfileView> {
                   children: [
                     SizedBox(
                       height: 190,
-                      child: Image.asset(
-                        'assets/pets/${widget.pet.name.toLowerCase()}.png',
-                        fit: BoxFit.cover,
+                      child: Hero(
+                        tag: widget.pet.name,
+                        child: Image.asset(
+                          'assets/pets/${widget.pet.name.toLowerCase()}.png',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ],

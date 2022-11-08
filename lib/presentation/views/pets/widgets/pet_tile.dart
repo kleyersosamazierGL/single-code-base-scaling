@@ -59,9 +59,12 @@ class _PetTileState extends State<PetTile> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset(
-              'assets/pets/${widget.pet.name.toLowerCase()}.png',
-              fit: BoxFit.fitWidth,
+            Hero(
+              tag: widget.pet.name,
+              child: Image.asset(
+                'assets/pets/${widget.pet.name.toLowerCase()}.png',
+                fit: BoxFit.fitWidth,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
