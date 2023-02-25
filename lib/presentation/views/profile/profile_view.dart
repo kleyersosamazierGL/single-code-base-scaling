@@ -106,7 +106,7 @@ class _ProfileViewState extends State<ProfileView> {
                   widget.pet.pedigree.toUpperCase(),
                   style: Theme.of(context)
                       .textTheme
-                      .overline!
+                      .labelSmall!
                       .copyWith(color: PetsAppColor.gray1),
                 ),
                 const SizedBox(
@@ -116,7 +116,7 @@ class _ProfileViewState extends State<ProfileView> {
                   widget.pet.name,
                   style: Theme.of(context)
                       .textTheme
-                      .headline4!
+                      .headlineMedium!
                       .copyWith(color: Colors.black),
                 ),
                 InfoContainer(
@@ -124,7 +124,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
                 Text(
                   'Color',
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         color: Colors.black,
                       ),
                 ),
@@ -133,7 +133,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
                 Text(
                   'White with brown and black spots',
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: PetsAppColor.gray1,
                       ),
                 ),
@@ -142,7 +142,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
                 Text(
                   'Description',
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         color: Colors.black,
                       ),
                 ),
@@ -151,7 +151,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
                 Text(
                   "She's a very friendly dog, well-socialized to other dogs and humans by her breeder, and she would drag us to greet every human and dog she met.",
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: PetsAppColor.gray1,
                       ),
                 ),

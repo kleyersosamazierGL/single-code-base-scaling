@@ -28,7 +28,7 @@ class LoginView extends StatelessWidget {
                   'Email',
                   style: Theme.of(context)
                       .textTheme
-                      .caption!
+                      .bodySmall!
                       .copyWith(color: Colors.white),
                 ),
                 const SizedBox(
@@ -52,7 +52,7 @@ class LoginView extends StatelessWidget {
                   'Password',
                   style: Theme.of(context)
                       .textTheme
-                      .caption!
+                      .bodySmall!
                       .copyWith(color: Colors.white),
                 ),
                 const SizedBox(

@@ -27,25 +27,33 @@ class AppTheme {
           ),
         ),
         textTheme: TextTheme(
-          headline1: const TextStyle(fontSize: 96, fontWeight: FontWeight.w500),
-          headline2: const TextStyle(fontSize: 60, fontWeight: FontWeight.w500),
-          headline3: const TextStyle(fontSize: 48, fontWeight: FontWeight.w500),
-          headline4: const TextStyle(fontSize: 34, fontWeight: FontWeight.w500),
-          headline5: const TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
-          headline6: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-          subtitle1: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-          subtitle2: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-          bodyText1: TextStyle(
+          displayLarge:
+              const TextStyle(fontSize: 96, fontWeight: FontWeight.w500),
+          displayMedium:
+              const TextStyle(fontSize: 60, fontWeight: FontWeight.w500),
+          displaySmall:
+              const TextStyle(fontSize: 48, fontWeight: FontWeight.w500),
+          headlineMedium:
+              const TextStyle(fontSize: 34, fontWeight: FontWeight.w500),
+          headlineSmall:
+              const TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+          titleLarge:
+              const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+          titleMedium:
+              const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          titleSmall:
+              const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          bodyLarge: TextStyle(
               fontSize: 16, fontFamily: GoogleFonts.ptSans().fontFamily),
-          bodyText2: TextStyle(
+          bodyMedium: TextStyle(
               fontSize: 14, fontFamily: GoogleFonts.ptSans().fontFamily),
-          button: const TextStyle(
+          labelLarge: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w700,
           ),
-          caption: TextStyle(
+          bodySmall: TextStyle(
               fontSize: 12, fontFamily: GoogleFonts.ptSans().fontFamily),
-          overline: const TextStyle(
+          labelSmall: const TextStyle(
             fontSize: 10,
             fontWeight: FontWeight.w600,
             letterSpacing: 3,
