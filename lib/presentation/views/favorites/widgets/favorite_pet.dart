@@ -55,7 +55,7 @@ class _FavoritePetState extends State<FavoritePet> {
               padding: const EdgeInsets.only(bottom: 4),
               child: Text(
                 widget.pet.name,
-                style: Theme.of(context).textTheme.headline6!.copyWith(
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: PetsAppColor.purple,
                     ),
               ),
@@ -65,7 +65,7 @@ class _FavoritePetState extends State<FavoritePet> {
                 Flexible(
                   child: Text(
                     '${widget.pet.pedigree}, ${widget.pet.age} years',
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

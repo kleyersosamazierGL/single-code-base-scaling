@@ -1,0 +1,19 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+
+class AdaptiveLayout extends StatelessWidget {
+  const AdaptiveLayout(
+      {super.key, required this.mobileWidget, required this.webWidget});
+  final Widget mobileWidget;
+  final Widget webWidget;
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, constraints) {
+      if (kIsWeb) {
+        return webWidget;
+      } else {
+        return mobileWidget;
+      }
+    });
+  }
+}

@@ -76,12 +76,12 @@ class _PetTileState extends State<PetTile> {
                     children: [
                       Text(
                         widget.pet.name,
-                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
                               color: PetsAppColor.purple,
                             ),
                       ),
                       Text('${widget.pet.pedigree}, ${widget.pet.age} years',
-                          style: Theme.of(context).textTheme.bodyText1),
+                          style: Theme.of(context).textTheme.bodyLarge),
                     ],
                   ),
                   Consumer<PetProvider>(builder: (context, provider, _) {

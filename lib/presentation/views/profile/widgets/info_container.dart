@@ -44,12 +44,12 @@ class InfoContainer extends StatelessWidget {
                 pet.gender.toShortString().capitalize(),
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle1!
+                    .titleMedium!
                     .copyWith(color: Colors.black),
               ),
               Text(
                 'GENDER',
-                style: Theme.of(context).textTheme.overline!.copyWith(
+                style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       color: PetsAppColor.gray1,
                     ),
               )
@@ -71,12 +71,12 @@ class InfoContainer extends StatelessWidget {
                 '${pet.age} year(s)',
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle1!
+                    .titleMedium!
                     .copyWith(color: Colors.black),
               ),
               Text(
                 'AGE',
-                style: Theme.of(context).textTheme.overline!.copyWith(
+                style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       color: PetsAppColor.gray1,
                     ),
               )
@@ -98,12 +98,12 @@ class InfoContainer extends StatelessWidget {
                 '${pet.weight} lb',
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle1!
+                    .titleMedium!
                     .copyWith(color: Colors.black),
               ),
               Text(
                 'WEIGHT',
-                style: Theme.of(context).textTheme.overline!.copyWith(
+                style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       color: PetsAppColor.gray1,
                     ),
               )
