@@ -27,13 +27,13 @@ class _HomeLargeViewState extends State<HomeLargeView> {
             switch (_selectedIndex) {
               case 0:
                 _pageController.animateToPage(1,
-                    duration: const Duration(microseconds: 800),
-                    curve: Curves.bounceInOut);
+                    duration: const Duration(microseconds: 500),
+                    curve: Curves.easeIn);
                 break;
               case 1:
                 _pageController.animateToPage(0,
-                    duration: const Duration(microseconds: 800),
-                    curve: Curves.bounceInOut);
+                    duration: const Duration(microseconds: 500),
+                    curve: Curves.easeIn);
                 break;
               default:
             }
