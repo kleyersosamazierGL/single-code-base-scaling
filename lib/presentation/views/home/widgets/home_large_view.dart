@@ -13,6 +13,7 @@ class HomeLargeView extends StatefulWidget {
 }
 
 class _HomeLargeViewState extends State<HomeLargeView> {
+  final PageController _pageController = PageController();
   int _selectedIndex = 0;
 
   @override
@@ -23,6 +24,19 @@ class _HomeLargeViewState extends State<HomeLargeView> {
         NavigationRail(
           selectedIndex: _selectedIndex,
           onDestinationSelected: (value) => setState(() {
+            switch (_selectedIndex) {
+              case 0:
+                _pageController.animateToPage(1,
+                    duration: const Duration(microseconds: 800),
+                    curve: Curves.bounceInOut);
+                break;
+              case 1:
+                _pageController.animateToPage(0,
+                    duration: const Duration(microseconds: 800),
+                    curve: Curves.bounceInOut);
+                break;
+              default:
+            }
             _selectedIndex = value;
           }),
           backgroundColor: PetsAppColor.purple,
@@ -57,8 +71,8 @@ class _HomeLargeViewState extends State<HomeLargeView> {
         Flexible(
           fit: FlexFit.loose,
           child: PageView.builder(
-            
             scrollDirection: Axis.vertical,
+            controller: _pageController,
             onPageChanged: (value) => setState(() {
               _selectedIndex = value;
             }),
