@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pets_app/core/constant/constant.dart';
 import 'package:pets_app/presentation/views/pets/widgets/pet_tile.dart';
 

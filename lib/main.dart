@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pets_app/core/theme/app_theme.dart';
+import 'package:pets_app/presentation/views/home/home_view.dart';
 import 'package:pets_app/presentation/views/login/login_view.dart';
-import 'package:pets_app/presentation/views/pets/pets_view.dart';
 import 'package:pets_app/provider/pet_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +22,7 @@ class PetsApp extends StatelessWidget {
         theme: AppTheme.themeData(),
         themeMode: ThemeMode.light,
         title: 'Pets App',
-        home: const LoginView(),
+        home: const HomeView(),
       ),
     );
   }

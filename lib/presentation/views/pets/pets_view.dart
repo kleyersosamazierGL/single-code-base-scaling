@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pets_app/presentation/views/pets/widgets/pet_list_mobile.dart';
-import 'package:pets_app/presentation/views/pets/widgets/pet_list_view.dart';
 import 'package:pets_app/presentation/views/pets/widgets/pet_list_web.dart';
 
 import 'package:pets_app/presentation/views/pets/widgets/search_action_button.dart';
