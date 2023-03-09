@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pets_app/core/color/pets_app_color.dart';
-import 'package:pets_app/presentation/views/home/home_view.dart';
 import 'package:pets_app/presentation/views/login/widgets/email_text_box_field.dart';
 import 'package:pets_app/presentation/views/login/widgets/login_button.dart';
 import 'package:pets_app/presentation/views/login/widgets/password_text_box_field.dart';

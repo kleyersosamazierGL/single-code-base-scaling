@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pets_app/core/color/pets_app_color.dart';
-import 'package:pets_app/core/constant/constant.dart';
-import 'package:pets_app/presentation/views/pets/widgets/pet_tile.dart';
+import 'package:pets_app/presentation/views/pets/widgets/pet_list_mobile.dart';
+import 'package:pets_app/presentation/views/pets/widgets/pet_list_view.dart';
+import 'package:pets_app/presentation/views/pets/widgets/pet_list_web.dart';
+
+import 'package:pets_app/presentation/views/pets/widgets/search_action_button.dart';
+import 'package:pets_app/widgets/adaptive_widget.dart';
 
 class PetsView extends StatelessWidget {
   const PetsView({Key? key}) : super(key: key);
@@ -11,23 +14,10 @@ class PetsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pets'),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.search,
-              color: PetsAppColor.purple,
-            ),
-          )
-        ],
+        actions: const [SearchActionButton()],
       ),
-      body: ListView(
-        children: petList
-            .map((p) => PetTile(
-                  pet: p,
-                ))
-            .toList(),
-      ),
+      body: const AdaptiveLayout(
+          mobileWidget: PetListMobile(), webWidget: PetListWeb()),
     );
   }
 }

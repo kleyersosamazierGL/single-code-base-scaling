@@ -8,6 +8,7 @@ class AdaptiveLayout extends StatelessWidget {
   final Widget webWidget;
   @override
   Widget build(BuildContext context) {
+    // TODO: Explain why LayoutBuilder is prefered than a simple
     return LayoutBuilder(builder: (context, constraints) {
       if (kIsWeb) {
         return webWidget;
