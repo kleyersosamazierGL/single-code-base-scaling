@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pets_app/presentation/views/favorites/widgets/favorite_pet.dart';
-import 'package:pets_app/presentation/views/favorites/widgets/favorites_view_mobile.dart';
+import 'package:pets_app/presentation/views/favorites/widgets/favorites_mobile_view.dart';
 import 'package:pets_app/presentation/views/favorites/widgets/favorites_web_view.dart';
-import 'package:pets_app/provider/pet_provider.dart';
 import 'package:pets_app/widgets/adaptive_layout_widget.dart';
 
 class FavoritesView extends StatelessWidget {
@@ -10,9 +8,14 @@ class FavoritesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AdaptiveLayoutWidget(
-      mobileWidget: FavoritesViewMobile(),
-      webWidget: FavoritesWebView(),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My Favorites'),
+      ),
+      body: const AdaptiveLayoutWidget(
+        mobileWidget: FavoritesMobileView(),
+        webWidget: FavoritesWebView(),
+      ),
     );
   }
 }
