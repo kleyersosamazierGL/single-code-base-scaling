@@ -3,7 +3,7 @@ import 'package:pets_app/presentation/views/pets/widgets/pet_list_mobile.dart';
 import 'package:pets_app/presentation/views/pets/widgets/pet_list_web.dart';
 
 import 'package:pets_app/presentation/views/pets/widgets/search_action_button.dart';
-import 'package:pets_app/widgets/adaptive_widget.dart';
+import 'package:pets_app/widgets/adaptive_layout_widget.dart';
 
 class PetsView extends StatelessWidget {
   const PetsView({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class PetsView extends StatelessWidget {
         title: const Text('Pets'),
         actions: const [SearchActionButton()],
       ),
-      body: const AdaptiveLayout(
+      body: const AdaptiveLayoutWidget(
           mobileWidget: PetListMobile(), webWidget: PetListWeb()),
     );
   }

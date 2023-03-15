@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pets_app/presentation/views/favorites/widgets/favorite_pet.dart';
+import 'package:pets_app/model/pet.dart';
+import 'package:pets_app/presentation/views/favorites/widgets/favorites_mobile_view.dart';
+import 'package:pets_app/presentation/views/favorites/widgets/favorites_web_view.dart';
 import 'package:pets_app/provider/pet_provider.dart';
+import 'package:pets_app/widgets/adaptive_layout_widget.dart';
 import 'package:provider/provider.dart';
 
 class FavoritesView extends StatelessWidget {
@@ -9,22 +12,20 @@ class FavoritesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Favorites'),
-      ),
-      body: SingleChildScrollView(
-        child: Consumer<PetProvider>(
-          builder: (context, provider, child) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children:
-                    provider.petList.map((p) => FavoritePet(pet: p)).toList(),
-              ),
-            );
-          },
+        appBar: AppBar(
+          title: const Text('My Favorites'),
         ),
-      ),
-    );
+        body: Selector<PetProvider, List<Pet>>(
+          selector: (context, petProvider) => petProvider.petList,
+          builder: (context, value, child) => value.isNotEmpty
+              ? const AdaptiveLayoutWidget(
+                  mobileWidget: FavoritesMobileView(),
+                  webWidget: FavoritesWebView(),
+                )
+              : const Center(
+                  child: Text('No favorites'),
+                ),
+          shouldRebuild: (previous, next) => true,
+        ));
   }
 }

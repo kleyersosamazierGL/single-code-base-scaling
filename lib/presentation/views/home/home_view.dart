@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pets_app/presentation/views/home/widgets/home_view_mobile.dart';
 import 'package:pets_app/presentation/views/home/widgets/home_view_web.dart';
-import 'package:pets_app/widgets/adaptive_widget.dart';
+import 'package:pets_app/widgets/adaptive_layout_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return const AdaptiveLayout(
+    return const AdaptiveLayoutWidget(
         mobileWidget: HomeViewMobile(), webWidget: HomeViewWeb());
   }
 }

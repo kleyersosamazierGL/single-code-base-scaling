@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
-class AdaptiveLayout extends StatelessWidget {
-  const AdaptiveLayout(
+class AdaptiveLayoutWidget extends StatelessWidget {
+  const AdaptiveLayoutWidget(
       {super.key, required this.mobileWidget, required this.webWidget});
   final Widget mobileWidget;
   final Widget webWidget;
