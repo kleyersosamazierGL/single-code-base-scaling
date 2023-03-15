@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pets_app/core/color/pets_app_color.dart';
 import 'package:pets_app/model/pet.dart';
@@ -39,58 +40,82 @@ class _ProfileViewState extends State<ProfileView> {
         children: [
           SizedBox(
             height: 230,
+            width: kIsWeb ? null : 230,
             child: Stack(
+              alignment: Alignment.topCenter,
               children: [
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: kIsWeb
+                      ? CrossAxisAlignment.center
+                      : CrossAxisAlignment.stretch,
                   children: [
-                    SizedBox(
-                      height: 190,
-                      child: Hero(
-                        tag: widget.pet.name,
-                        child: Image.asset(
-                          'assets/pets/${widget.pet.name.toLowerCase()}.png',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                    kIsWeb
+                        ? SizedBox(
+                            height: 200,
+                            child: Hero(
+                              tag: widget.pet.name,
+                              child: Container(
+                                clipBehavior: Clip.antiAlias,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  'assets/pets/${widget.pet.name.toLowerCase()}.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          )
+                        : SizedBox(
+                            height: 200,
+                            child: Hero(
+                              tag: widget.pet.name,
+                              child: Image.asset(
+                                'assets/pets/${widget.pet.name.toLowerCase()}.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
                   ],
                 ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    margin: const EdgeInsets.only(right: 16),
-                    padding: const EdgeInsets.all(8),
-                    child: Consumer<PetProvider>(
-                      builder: (context, provider, _) {
-                        return IconButton(
-                          onPressed: () {
-                            isFavorite = !isFavorite;
+                SizedBox(
+                  width: kIsWeb ? 200 : null,
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      margin: const EdgeInsets.only(right: 16),
+                      padding: const EdgeInsets.all(8),
+                      child: Consumer<PetProvider>(
+                        builder: (context, provider, _) {
+                          return IconButton(
+                            onPressed: () {
+                              isFavorite = !isFavorite;
 
-                            if (isFavorite) {
-                              provider.addFavorite(widget.pet);
-                            } else {
-                              provider.removeFavorite(widget.pet);
-                            }
+                              if (isFavorite) {
+                                provider.addFavorite(widget.pet);
+                              } else {
+                                provider.removeFavorite(widget.pet);
+                              }
 
-                            setState(() {});
-                          },
-                          icon: Icon(
-                            isFavorite &&
-                                    provider.petList.indexWhere((pet) =>
-                                            pet.name == widget.pet.name) !=
-                                        -1
-                                ? Icons.favorite
-                                : Icons.favorite_border,
-                            size: 35,
-                            color: PetsAppColor.purple,
-                          ),
-                        );
-                      },
+                              setState(() {});
+                            },
+                            icon: Icon(
+                              isFavorite &&
+                                      provider.petList.indexWhere((pet) =>
+                                              pet.name == widget.pet.name) !=
+                                          -1
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              size: 35,
+                              color: PetsAppColor.purple,
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 )
